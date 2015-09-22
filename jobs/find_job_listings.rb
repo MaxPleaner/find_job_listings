@@ -10,6 +10,33 @@ module FindJobListings
 	# API key is needed for Indeed, but not the others
 	INDEED_PUBLISHER_NUMBER = ENV["INDEED_PUBLISHER_NUMBER"]
 	
+	class AngelList_API
+		attr_reader :base_url, :response_xml
+		def initialize
+			@base_url = "https://zapier.com/engine/rss/228093/angellist"
+			byebug # unfinished
+			true
+		end
+		def jobs(options={})
+			# limit and start options
+			open(@base_url){ |response| @response_xml = response }
+
+		end
+		def defaults
+			{
+				limit: 2,
+				start: 0
+			}
+		end
+		def useful_data(jobs)
+			jobs.map do |job|
+				{
+
+				}
+			end
+		end
+	end
+
 	class Indeed_API
 		attr_reader :client # an Indeed::Client
 		def initialize
@@ -53,7 +80,7 @@ module FindJobListings
 	end
 
 	class StackOverflow_API
-		attr_reader :data, :base_url
+		attr_reader :response_xml, :base_url
 		def initialize
 			@base_url = "http://careers.stackoverflow.com/jobs/feed"
 		end
@@ -68,8 +95,8 @@ module FindJobListings
 			url = URI::encode(
 				"#{base_url}?#{options.map{ |k,v| "#{k}=#{v}"}.join("&")}"
 			)
-			open(url) { |results| @data = results.read }
-			items = Nokogiri::XML(@data).css("item")
+			open(url) { |results| @response_xml = results.read }
+			items = Nokogiri::XML(response_xml).css("item")
 			results = useful_data(items)
 			limit = options[:limit].to_i
 			offset = options[:start].to_i * limit.to_i if limit
@@ -99,7 +126,7 @@ end
 
 if __FILE__ == $0
 	options = ARGV.reduce({}) do |options, arg|
-		key = arg.scan(/(.+)=.+/).flatten.first
+		key = arg.scan(/(.+)=./).flatten.first
 		val = arg.gsub("#{key}=", "")
 		options[key.to_sym] = val
 		options
