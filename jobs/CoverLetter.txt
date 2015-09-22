@@ -1,0 +1,21 @@
+Public Interest Network team,
+
+I'm glad to apply to work with your company because I got a favorable impression of your work during my time at UC Santa Cruz. In my Senior year, I had an internship with a City Council Member and met with CALPIRG organizers to collaborate on events. While I finished college studying Politics, I've been programming since graduating. 
+
+I was most recently a core member of Sobrr.life's small team, working with a Rails / MySQL / AWS stack. Prior to that, I attended App Academy's full-stack bootcamp and CodeUnion's web dev fundamentals class. I'm eager to learn new technologies, collaborate and build quality products.
+
+At Sobrr.life, I managed deploys, environments, and metrics through AWS. I designed schema updates and aggregated statistics with MySQL. I was the primary developer working on the Rails-based backend and JSON API. I migrated cachable data from MySQL to Redis and built a notification-scheduling system using Resque. For the promotional website's dynamic front-end, I used jQuery to add an administration interface, infinite scroll, and pinterest-style layout. I maintained a large test suite using RSpec.
+
+At App Academy, I finessed my Rails skills, built Asteroids with HTML5 canvas and created a "Feedly" RSS Reader clone using Backbone.js.
+
+Before starting to study web development, I graduated from UCSC with a Politics degree, staffed a City Council Member’s office and performed public outreach for a number of other political campaigns.
+	
+In my free time, I'm constantly learning new technologies and exploring open-source. I deployed an IRC bot and added a web interface using Sinatra. I wrote a Unix script to download mp3 tracks from Youtube. 
+
+My resume can be found at maxpleaner.com/resume. It describes my experience and skills in more detail. My website, maxpleaner.com, contains more lengthy skills descriptions and links to portfolio pieces.
+
+Thanks,
+Max Pleaner
+github.com/maxpleaner
+linkedin.com/in/maxpleaner
+maxpleaner.comwww.youtube.com/watch?v=i70zFUh5ugA
