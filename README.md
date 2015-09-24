@@ -10,10 +10,10 @@ For Jobberwocky, `mechanize` is used to automate form interaction and JSON parse
 1. `bundle install`
 2. `cd jobs`
 3. `ruby find_job_listings.rb source=SOURCE`  
-  - where source is `StackOverflow_API`, `Indeed_API`, or `Jobberwocky_API`.
+  - where SOURCE is `StackOverflow_API`, `Indeed_API`, or `Jobberwocky_API`.
   - For Indeed, `ENV["INDEED_PUBLISHER_NUMBER"]` needs to be set
-  - for Jobberwocky (only available to App Academy students), `ENV["GITHUB_USERNAME"]` and `ENV["GITHUB_PASSWORD"] need to be set
+  - for Jobberwocky (only available to App Academy students), `ENV["GITHUB_USERNAME"]` and `ENV["GITHUB_PASSWORD"]` need to be set
   - other command line options can be specified:
     - `limit=n` returns n jobs
     - `start=n` pages the jobs (beginning at index n)
-    - `search_term=ruby` can be used to specify keywords (except when using Jobberwocky).
+    - `search_term=ruby` can be used to specify keywords (except when using Jobberwocky).`
