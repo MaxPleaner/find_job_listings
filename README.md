@@ -5,7 +5,7 @@ The whole app lives in `find_job_listings.rb` (except for the `Gemfile`).
 For Indeed, `nokogiri` is used to parse RSS
 For StackOverflow, the JSON parser is used
 AngelList is incomplete and nonfunctional.
-For Jobberwocky, `mechanize` is used to automate form interaction and `nokogiri` to traverse the page.
+For Jobberwocky, `mechanize` is used to automate form interaction and JSON parsed for the job listings
 
 1. `bundle install`
 2. `cd jobs`
