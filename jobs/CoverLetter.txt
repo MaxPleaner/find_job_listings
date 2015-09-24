@@ -1,6 +1,4 @@
-Public Interest Network team,
-
-I'm glad to apply to work with your company because I got a favorable impression of your work during my time at UC Santa Cruz. In my Senior year, I had an internship with a City Council Member and met with CALPIRG organizers to collaborate on events. While I finished college studying Politics, I've been programming since graduating. 
+Talener,
 
 I was most recently a core member of Sobrr.life's small team, working with a Rails / MySQL / AWS stack. Prior to that, I attended App Academy's full-stack bootcamp and CodeUnion's web dev fundamentals class. I'm eager to learn new technologies, collaborate and build quality products.
 
@@ -18,4 +16,4 @@ Thanks,
 Max Pleaner
 github.com/maxpleaner
 linkedin.com/in/maxpleaner
-maxpleaner.comwww.youtube.com/watch?v=i70zFUh5ugA
+maxpleaner.com
