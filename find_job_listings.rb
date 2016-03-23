@@ -6,6 +6,7 @@ module FindJobListings
 	require 'awesome_print'
 	require 'nokogiri'
 	require 'open-uri'
+  require 'open_uri_redirections'
 	require 'mechanize'
 
 	Agent = Mechanize.new
@@ -13,6 +14,10 @@ module FindJobListings
 	class Jobberwocky_API
 		attr_reader :jobs_data
 		def initialize
+                        unless ENV["GITHUB_USERNAME"] && ENV["GITHUB_PASSWORD"]
+                          puts "GITHUB_USERNAME and GITHUB_PASSWORD environment variables need to be set."
+                          exit
+                        end
 			sign_in
 			jobs_url = "http://progress.appacademy.io/jobberwocky/api/companies"
 			jobs_json = Agent.get(jobs_url).content
@@ -58,6 +63,10 @@ module FindJobListings
 	class AngelList_API
 		attr_reader :base_url, :response_xml
 		def initialize
+# -------------------------------------
+                        puts "This API source is not functional yet."
+                        exit
+# -------------------------------------
 			@base_url = "https://zapier.com/engine/rss/228093/angellist"
 			byebug # unfinished
 			true
@@ -85,6 +94,10 @@ module FindJobListings
 	class Indeed_API
 		attr_reader :client # an Indeed::Client
 		def initialize
+      unless ENV["INDEED_PUBLISHER_NUMBER"]
+        puts "INDEED_PUBLISHER_NUMBER environment variable needs to be set"
+        exit
+      end
 			publisher_number = ENV["INDEED_PUBLISHER_NUMBER"]
 			@client = Indeed::Client.new(publisher_number)
 		end
@@ -139,7 +152,7 @@ module FindJobListings
 			url = URI::encode(
 				"#{base_url}?#{options.map{ |k,v| "#{k}=#{v}"}.join("&")}"
 			)
-			open(url) { |results| @response_xml = results.read }
+			open(url, allow_redirections: :safe) { |results| @response_xml = results.read }
 			items = Nokogiri::XML(response_xml).css("item")
 			results = useful_data(items)
 			limit = options[:limit].to_i
@@ -175,6 +188,10 @@ if __FILE__ == $0
 		options[key.to_sym] = val
 		options
 	end
+       unless options[:source]
+         puts "Missing 'source' argument. \nPlease use one of StackOverflow_API, Indeed_API, or Jobberwocky_API. \n For example, `ruby find_job_listings.rb source=Indeed_API limit=10 start=0 search_term=ruby"
+         exit 
+       end
 	interface = "FindJobListings::#{options.delete(:source)}".constantize.new
 	jobs = interface.jobs(options)
 	ap jobs, indent: 2

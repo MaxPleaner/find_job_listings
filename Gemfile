@@ -9,3 +9,5 @@ gem 'nokogiri'
 gem "mechanize"
 
 gem "byebug"
+
+gem 'open_uri_redirections'
