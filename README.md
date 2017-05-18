@@ -1,3 +1,7 @@
+## update
+
+I'd consider this deprecated in favor of https://github.com/MaxPleaner/job_search_companion
+
 # Find Job Listings
 
 The whole app lives in `find_job_listings.rb` (except for the `Gemfile`).
